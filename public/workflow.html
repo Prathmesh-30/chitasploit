@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChitraSploit Workflow</title>
+<style>
+    /* ---------- BASIC PAGE STYLING ---------- */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f8f9fa;
+        color: #212529;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    /* ---------- MAIN WORKFLOW CONTAINER ---------- */
+    .workflow-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+        background: #ffffff;
+        padding: 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-bottom: 2.5rem;
+        color: #343a40;
+        font-weight: 700;
+    }
+
+    /* ---------- WORKFLOW STEPS CONTAINER ---------- */
+    .workflow-steps {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        position: relative;
+    }
+
+    /* ---------- INDIVIDUAL WORKFLOW STEP ---------- */
+    .step {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        padding-bottom: 2.5rem; /* Space for the line */
+    }
+
+    /* Remove bottom padding and line from the last step */
+    .step:last-child {
+        padding-bottom: 0;
+    }
+    .step:last-child::after {
+        display: none;
+    }
+
+    /* ---------- STEP NUMBER CIRCLE ---------- */
+    .step-number {
+        background-color: #007bff;
+        color: white;
+        min-width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-right: 1.5rem;
+        z-index: 10;
+        flex-shrink: 0; /* Prevents the circle from shrinking */
+    }
+
+    /* ---------- STEP CONTENT BOX ---------- */
+    .step-content {
+        background-color: #f1f3f5;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        width: 100%;
+    }
+    .step-content .tier-title {
+        font-weight: 600;
+        color: #007bff;
+        margin-bottom: 0.5rem;
+        display: block;
+    }
+    .step-content p {
+        margin: 0;
+        line-height: 1.6;
+    }
+    .step-content code {
+        background-color: #e9ecef;
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+    /* ---------- VERTICAL CONNECTOR LINE ---------- */
+    .step::after {
+        content: '';
+        position: absolute;
+        top: 40px; /* Start below the number circle */
+        left: 20px; /* Center of the number circle */
+        width: 2px;
+        height: calc(100% - 20px); /* Extend down to the next step */
+        background-color: #dee2e6;
+        z-index: 1;
+    }
+
+    /* ---------- RESPONSIVE DESIGN ---------- */
+    @media (max-width: 600px) {
+        body {
+            padding: 1rem;
+        }
+        .workflow-container {
+            padding: 1.5rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .step-number {
+            min-width: 35px;
+            height: 35px;
+            font-size: 1rem;
+            margin-right: 1rem;
+        }
+        .step::after {
+            left: 17.5px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="workflow-container">
+    <h1>ChitraSploit Workflow</h1>
+    <ul class="workflow-steps">
+        <!-- STEP 1: USER ACTION -->
+        <li class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <span class="tier-title">Client (React.js)</span>
+                <p>A user submits the movie suggestion form.</p>
+            </div>
+        </li>
+
+        <!-- STEP 2: SERVER PROCESSING -->
+        <li class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <span class="tier-title">Server (Node.js/Express.js)</span>
+                <p>The server receives the request, validates the data, and prepares to save it.</p>
+            </div>
+        </li>
+
+        <!-- STEP 3: DATABASE STORAGE -->
+        <li class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <span class="tier-title">Database (MongoDB)</span>
+                <p>The validated data is written and stored as a new document in the collection.</p>
+            </div>
+        </li>
+        
+        <!-- STEP 4: CONFIRMATION -->
+        <li class="step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <span class="tier-title">Client (React.js)</span>
+                <p>Receives a success response from the server and updates the UI with a confirmation.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>
+

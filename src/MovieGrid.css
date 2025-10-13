@@ -1,0 +1,129 @@
+/* Using the color variables from your App.css */
+:root {
+  --text-color: #e2e8f0;
+  --text-muted: #94a3b8;
+  --card-bg: #2a3038;
+}
+
+.movie-card {
+  position: relative; /* Crucial for positioning the overlay */
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #333;
+  aspect-ratio: 2 / 3; /* Maintain a consistent movie poster shape */
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* On hover, slightly zoom in the poster for a dynamic effect */
+.movie-card:hover .movie-poster {
+  transform: scale(1.05);
+}
+
+/* The overlay covers the entire card and holds all text content */
+.movie-info-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Aligns content to the bottom */
+  padding: 1rem;
+  /* A gradient to make text readable against any poster */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 10%, transparent 90%);
+  transition: background 0.4s ease-in-out;
+}
+
+/* On hover, the gradient becomes more prominent */
+.movie-card:hover .movie-info-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 25%,
+    transparent 100%
+  );
+}
+
+/* DEFAULT STATE: Only the simple title is visible */
+.movie-title-default {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.movie-title-default h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* On hover, hide the default title */
+.movie-card:hover .movie-title-default {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* HOVER STATE: The detailed info is hidden by default */
+.movie-info-hover {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s; /* Add a slight delay */
+}
+
+/* On hover, show the detailed info */
+.movie-card:hover .movie-info-hover {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.movie-title-hover {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #fff;
+}
+
+.movie-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.movie-genre {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.movie-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffc107; /* Gold color for rating */
+}
+
+.star-icon {
+  width: 16px;
+  height: 16px;
+}

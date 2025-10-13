@@ -1,0 +1,22 @@
+/* ... other styles for SuggestionsPage ... */
+
+.suggestions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Styles from NoSuggestions.css are now here */
+.no-suggestions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+  background-color: #1a1d22;
+  border-radius: 8px;
+  border: 1px dashed #334155;
+  color: #94a3b8;
+  font-size: 1.1rem;
+}

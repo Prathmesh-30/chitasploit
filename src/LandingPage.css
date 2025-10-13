@@ -1,0 +1,141 @@
+/* Define variables at the root for better management, if you use them */
+:root {
+  --text-color: #f5f5f5; /* Example: setting the text color variable */
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw; /* Ensure it covers the full viewport */
+  text-align: center;
+  color: var(--text-color);
+  position: relative;
+  overflow: hidden; /* Hide any overflow */
+
+  /* Your Cloudinary background image URL */
+  background-image: url("https://res.cloudinary.com/dwioxbbrl/image/upload/v1760265725/background_image_bufign.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* This creates the dark overlay on top of the image */
+.landing-page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85); /* Dark overlay with 85% opacity */
+  z-index: 1; /* Places overlay between background and content */
+}
+
+/* This holds your title, tagline, and buttons */
+.landing-content {
+  position: relative; 
+  z-index: 2; /* Ensures content is on top of the overlay */
+  max-width: 800px;
+  padding: 20px;
+}
+
+.landing-title {
+  font-size: 5rem;
+  color: #e50914; /* Red color for title */
+  margin-bottom: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.landing-tagline {
+  font-size: 1.8rem;
+  color: #f5f5f5; /* Off-white for readability */
+  margin-bottom: 40px;
+  line-height: 1.4;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.landing-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-buttons button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-explore {
+  background-color: #e50914; /* Netflix red */
+  color: #ffffff;
+}
+
+.btn-explore:hover {
+  background-color: #f6121d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-explore .arrow {
+  font-size: 1.4rem;
+  margin-left: 5px;
+}
+
+.btn-suggest {
+  background-color: #333;
+  color: #ffffff;
+  border: 1px solid #555;
+}
+
+.btn-suggest:hover {
+  background-color: #444;
+  border-color: #777;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn-suggest .star {
+  color: #ffd700; /* Gold star */
+  font-size: 1.2rem;
+}
+
+/* --- Responsive adjustments --- */
+@media (max-width: 768px) {
+  .landing-title {
+    font-size: 3.5rem;
+  }
+  .landing-tagline {
+    font-size: 1.4rem;
+  }
+  .landing-buttons button {
+    font-size: 1rem;
+    padding: 12px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-title {
+    font-size: 2.5rem;
+  }
+  .landing-tagline {
+    font-size: 1.1rem;
+  }
+  .landing-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

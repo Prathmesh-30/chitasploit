@@ -1,0 +1,61 @@
+/* Uses variables from your App.css file */
+.suggestion-card {
+  background-color: var(--secondary-bg);
+  border: 1px solid var(--card-bg);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.suggestion-card:hover {
+  border-color: var(--accent-color);
+}
+
+.suggestion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.suggestion-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.suggestion-time {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 5px; /* Aligns better with title */
+}
+
+.suggestion-body {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.suggestion-footer {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.suggested-by-icon {
+  font-size: 1.2rem;
+}
+
+.suggestion-footer strong {
+  color: var(--text-color);
+  font-weight: 500;
+}

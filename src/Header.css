@@ -1,0 +1,104 @@
+/* --- Main Header Container --- */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: #121212; /* Darker background from image */
+  width: 100%;
+  gap: 2rem; /* Adds space between logo, search, and buttons */
+
+  /* Sticky position from your previous code */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* --- Left Side: Logo and Title --- */
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0; /* Prevents this section from shrinking */
+}
+
+.app-title {
+  color: #e50914;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+
+/* --- Center: Search Bar --- */
+.search-bar {
+  position: relative; /* Needed for positioning the search icon */
+  flex-grow: 1; /* Allows search bar to take up available space */
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  pointer-events: none; /* Prevents the icon from being clickable */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px 20px 12px 45px; /* Added left padding for the icon */
+  border-radius: 6px; /* Less rounded corners */
+  border: 1px solid #333;
+  background-color: #2a3038;
+  color: #e2e8f0;
+  font-size: 1rem;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #555;
+  background-color: #333942;
+}
+
+/* --- Right Side: Action Buttons --- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0; /* Prevents this section from shrinking */
+}
+
+.header-actions button {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-browse {
+  background-color: #e50914;
+  color: #ffffff;
+}
+
+.btn-browse:hover {
+  background-color: #f6121d; /* Slightly brighter on hover */
+}
+
+.btn-suggestions {
+  background-color: transparent;
+  color: #cbd5e1;
+}
+
+.btn-suggestions:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Your old classes like .header-top and .nav-links are no longer needed */

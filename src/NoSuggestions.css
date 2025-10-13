@@ -1,0 +1,13 @@
+.no-suggestions-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  margin-top: 2rem;
+  background-color: var(--secondary-bg); /* Uses a variable from your App.css */
+  border-radius: 8px;
+  color: var(--text-muted); /* Uses a variable from your App.css */
+  font-size: 1.2rem;
+  font-style: italic;
+}
